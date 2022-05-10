@@ -1,5 +1,5 @@
 let map, source, attribution, layer, stations;
-let url='http://localhost:5000';
+let url='https://liz-api.herokuapp.com';
 function init() {
     attribution = new ol.control.Attribution({
         collapsible: false
