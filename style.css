@@ -1,0 +1,98 @@
+.dashboard{
+    margin: 20px;
+}
+.map{
+    max-height: 535px;
+    border-radius: 10px;
+}
+.card1{
+    grid-area: card1;
+}
+.card2>.card>div{
+    grid-area: card2;
+    display:grid;
+    grid-template-columns: auto auto;
+    padding-top: 20px;
+    padding-left: 80px;
+}
+
+.card3{
+    grid-area: card3;
+}
+.card3>.card>div{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.card-body{
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.custom-select{
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: 5px black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn{
+    background-color: yellow;
+    color: black;
+    border: none;
+    width: 150px;
+    border-radius: 20px;
+}
+.stations{
+    grid-area: stations;
+}
+.stations>.card>.card-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+p{
+    font-size: 110%;
+}
+#stations{
+    list-style: none;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.station::before{
+    content: "•"; color: aqua;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+.stationPassed::before{
+    content: "•"; color: black;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+.from-to{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-between;
+    top: 50px;
+    min-height: 20%;
+    left: 20px;
+}
+.map{
+    grid-area: map;
+}
+.dashboard{
+    display: grid;
+    grid-template-areas:
+      'card1 card2 card3'
+      'stations map map';
+    gap: 10px;
+    padding: 10px;
+}
+
+.stations>.card>.card-body{
+    min-height: 500px;
+}
