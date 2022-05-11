@@ -111,17 +111,17 @@ function startJourney(stations) {
 }
 
 function handleMarker(stations) {
-    let i = 0;
+    let i = 1;
     let startTime=Date.now();
     let keys = Object.keys(stations);
     const timer = setInterval(function () {
         if(i < keys.length-1) {
             updateStatistics(startTime);
-            animateMarker([stations[keys[i]].longitude, stations[keys[i]].latitude], [stations[keys[i + 1]].longitude, stations[keys[i + 1]].latitude]);
+            animateMarker([stations[keys[i-1]].longitude, stations[keys[i-1]].latitude], [stations[keys[i]].longitude, stations[keys[i]].latitude]);
             map.getView().setCenter(ol.proj.fromLonLat(
                 [
-                    parseFloat(stations[keys[i]].longitude),
-                    parseFloat(stations[keys[i]].latitude)
+                    parseFloat(stations[keys[i-1]].longitude),
+                    parseFloat(stations[keys[i-1]].latitude)
                 ]
             ));
             i++;
@@ -135,7 +135,7 @@ function animateMarker(start, end) {
         coordinate = marker.get('line').getCoordinateAt(position / (1000 / 2));
         marker.setGeometry(new ol.geom.Point(ol.proj.fromLonLat(coordinate)));
         if (position < 1000 / 2) {
-            setTimeout(updatePosition, 1, position + 1, marker);
+            setTimeout(updatePosition, 100, position + 1, marker);
         } else {
             marker.set('animating', false);
         }
